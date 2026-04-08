@@ -34,13 +34,9 @@ npm start
 ```
 Open **http://localhost:4200** in your browser. The dev server reloads when you change the code.
 
-### On the deployed site (production)
-After you deploy (Vercel, Render, or similar), open the **URL your host shows** (for example `https://your-app.vercel.app`).  
-Use the same paths as locally: `/characters`, `/filter`, and `/characters/<id>`.
+### On the deployed site (Vercel)
+**Live app:** [https://101501883-lab-test2-comp3133-jzz5kk9ed.vercel.app](https://101501883-lab-test2-comp3133-jzz5kk9ed.vercel.app)
 
-To build the static files yourself before uploading:
-```bash
-npm install
-npm run build
-```
-Output is in **`dist/101501883-lab-test2-comp3133/browser`** — that folder is what static hosts publish.
+- Character list: [https://101501883-lab-test2-comp3133-jzz5kk9ed.vercel.app/characters](https://101501883-lab-test2-comp3133-jzz5kk9ed.vercel.app/characters)
+- House filter: [https://101501883-lab-test2-comp3133-jzz5kk9ed.vercel.app/filter](https://101501883-lab-test2-comp3133-jzz5kk9ed.vercel.app/filter)
+- Character details: `https://101501883-lab-test2-comp3133-jzz5kk9ed.vercel.app/characters/<id>` (replace `<id>` with a character id from the API)
