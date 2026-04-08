@@ -1,0 +1,26 @@
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #18182d;
+  color: #f8f8ff;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.35);
+}
+
+.title {
+  font-family: Cinzel, serif;
+  font-weight: 700;
+  color: #d4af37;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.active-link {
+  background: rgba(212, 175, 55, 0.2);
+}
+
+main {
+  padding-bottom: 2rem;
+}

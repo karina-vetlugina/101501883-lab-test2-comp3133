@@ -1,0 +1,23 @@
+.house-select {
+  width: min(360px, 100%);
+  margin-bottom: 1rem;
+}
+
+.character-card {
+  background: #1d1d32;
+  color: #f5f5ff;
+}
+
+.no-image {
+  height: 280px;
+  display: grid;
+  place-items: center;
+  background: #2d2d47;
+  color: #ddd;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}

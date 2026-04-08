@@ -1,0 +1,52 @@
+<section class="page-wrapper">
+  <h2>Character Details</h2>
+
+  @if (hpService.loading()) {
+    <div class="center-content">
+      <mat-spinner diameter="48"></mat-spinner>
+    </div>
+  } @else if (hpService.errorMessage()) {
+    <p class="muted">{{ hpService.errorMessage() }}</p>
+  } @else if (!hpService.selectedCharacter()) {
+    <p class="muted">No details found for this character.</p>
+  } @else {
+    <mat-card class="details-card">
+      @if ((hpService.selectedCharacter()?.image | fallback:'') !== '') {
+        <img
+          class="character-image"
+          [src]="hpService.selectedCharacter()?.image"
+          [alt]="(hpService.selectedCharacter()?.name | fallback) + ' image'"
+        />
+      } @else {
+        <div class="no-image">No image available</div>
+      }
+
+      <mat-card-content>
+        <h3>{{ hpService.selectedCharacter()?.name | fallback }}</h3>
+        <p><strong>Species:</strong> {{ hpService.selectedCharacter()?.species | fallback }}</p>
+        <p><strong>House:</strong> {{ hpService.selectedCharacter()?.house | fallback }}</p>
+
+        <p>
+          <strong>Wizard:</strong>
+          @switch (hpService.selectedCharacter()?.wizard) {
+            @case (true) {
+              Yes
+            }
+            @case (false) {
+              No
+            }
+            @default {
+              Unknown
+            }
+          }
+        </p>
+
+        <p><strong>Ancestry:</strong> {{ hpService.selectedCharacter()?.ancestry | fallback }}</p>
+        <p><strong>Wand Wood:</strong> {{ hpService.selectedCharacter()?.wand?.wood | fallback }}</p>
+        <p><strong>Wand Core:</strong> {{ hpService.selectedCharacter()?.wand?.core | fallback }}</p>
+        <p><strong>Wand Length:</strong> {{ hpService.selectedCharacter()?.wand?.length | fallback }}</p>
+        <p><strong>Actor:</strong> {{ hpService.selectedCharacter()?.actor | fallback }}</p>
+      </mat-card-content>
+    </mat-card>
+  }
+</section>

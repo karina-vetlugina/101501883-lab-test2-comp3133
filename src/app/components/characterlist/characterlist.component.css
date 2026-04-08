@@ -1,0 +1,51 @@
+.center-content {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.character-card {
+  background: #1d1d32;
+  color: #f5f5ff;
+  display: flex;
+  flex-direction: column;
+  min-height: 460px;
+}
+
+.no-image {
+  height: 280px;
+  display: grid;
+  place-items: center;
+  color: #ddd;
+  background: #2d2d47;
+}
+
+.badge {
+  display: inline-block;
+  margin-top: 0.25rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.gryffindor {
+  background: #7f0909;
+}
+
+.slytherin {
+  background: #1a472a;
+}
+
+.ravenclaw {
+  background: #0e1a40;
+}
+
+.hufflepuff {
+  background: #ecb939;
+  color: #111;
+}
+
+.unknown {
+  background: #4a4a4a;
+}

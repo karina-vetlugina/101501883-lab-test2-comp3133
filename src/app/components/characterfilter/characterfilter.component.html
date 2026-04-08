@@ -1,0 +1,40 @@
+<section class="page-wrapper">
+  <h2>Filter Characters By House</h2>
+
+  <mat-form-field appearance="outline" class="house-select">
+    <mat-label>Select house</mat-label>
+    <mat-select [formControl]="houseControl">
+      @for (house of houses; track house) {
+        <mat-option [value]="house">{{ house }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  @if (hpService.loading()) {
+    <div class="center-content">
+      <mat-spinner diameter="44"></mat-spinner>
+    </div>
+  } @else if (hpService.errorMessage()) {
+    <p class="muted">{{ hpService.errorMessage() }}</p>
+  } @else if (hpService.filteredCharacters().length === 0) {
+    <p class="muted">No characters found for {{ hpService.selectedHouse() }}.</p>
+  } @else {
+    <div class="card-grid">
+      @for (character of hpService.filteredCharacters(); track character.id) {
+        <mat-card class="character-card">
+          @if (character.image | fallback:'') {
+            <img class="character-image" [src]="character.image" [alt]="character.name + ' image'" />
+          } @else {
+            <div class="no-image">No image available</div>
+          }
+
+          <mat-card-content>
+            <h3>{{ character.name | fallback }}</h3>
+            <p><strong>Actor:</strong> {{ character.actor | fallback }}</p>
+            <p><strong>House:</strong> {{ character.house | fallback }}</p>
+          </mat-card-content>
+        </mat-card>
+      }
+    </div>
+  }
+</section>

@@ -1,0 +1,65 @@
+<section class="page-wrapper">
+  <h2>All Harry Potter Characters</h2>
+
+  @if (hpService.loading()) {
+    <div class="center-content">
+      <mat-spinner diameter="48"></mat-spinner>
+    </div>
+  } @else if (hpService.errorMessage()) {
+    <p class="muted">{{ hpService.errorMessage() }}</p>
+  } @else if (hpService.characters().length === 0) {
+    <p class="muted">No characters found.</p>
+  } @else {
+    <div class="card-grid">
+      @for (character of hpService.characters(); track character.id) {
+        <mat-card class="character-card">
+          @if (character.image | fallback:'') {
+            <img
+              mat-card-image
+              class="character-image"
+              [src]="character.image"
+              [alt]="character.name + ' image'"
+            />
+          } @else {
+            <div class="no-image">No image available</div>
+          }
+
+          <mat-card-content>
+            <h3>{{ character.name | fallback }}</h3>
+            <p class="muted">House: {{ character.house | fallback }}</p>
+
+            @switch (character.house) {
+              @case ('Gryffindor') {
+                <span class="badge gryffindor">Brave</span>
+              }
+              @case ('Slytherin') {
+                <span class="badge slytherin">Ambitious</span>
+              }
+              @case ('Ravenclaw') {
+                <span class="badge ravenclaw">Wise</span>
+              }
+              @case ('Hufflepuff') {
+                <span class="badge hufflepuff">Loyal</span>
+              }
+              @default {
+                <span class="badge unknown">No House</span>
+              }
+            }
+          </mat-card-content>
+
+          <mat-card-actions>
+            <a
+              mat-raised-button
+              color="primary"
+              [routerLink]="['/characters', character.id]"
+              [disabled]="!(character.id | fallback:'')"
+            >
+              <mat-icon>visibility</mat-icon>
+              View Details
+            </a>
+          </mat-card-actions>
+        </mat-card>
+      }
+    </div>
+  }
+</section>

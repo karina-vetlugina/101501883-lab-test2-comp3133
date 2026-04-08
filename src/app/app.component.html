@@ -1,0 +1,17 @@
+<mat-toolbar class="top-bar">
+  <span class="title">Harry Potter Character Explorer</span>
+  <span class="spacer"></span>
+
+  <a mat-button routerLink="/characters" routerLinkActive="active-link">
+    <mat-icon>groups</mat-icon>
+    Characters
+  </a>
+  <a mat-button routerLink="/filter" routerLinkActive="active-link">
+    <mat-icon>filter_alt</mat-icon>
+    Filter
+  </a>
+</mat-toolbar>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
